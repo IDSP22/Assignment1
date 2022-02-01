@@ -1,0 +1,72 @@
+---
+title: "Assignment 1"
+date: "1/31/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# Background
+
+You're approached by a faculty member in the NYU A3SR program who would like you to help them develop a simple visualization tool to help them see the distribution of their students grades. The faculty member teaches 2 class so the application will need to be able to switch between 2 different datasets. 
+
+Some of the assignments are on a continuous scale, while others are on a discrete scale. The faculty member would prefer to see grades as a histogram for continuous variables and a barchart for discrete variables. For the continuous assignments, the faculty member likes the idea of having the option to group the histogram by any of the discrete variables (i.e. a grouped histogram). 
+
+Due to privacy laws the faculty member can not share the grades with you but asks you to code up a prototype using the `penguins` and `mtcars` datasets. 
+
+Can you build the prototype? 
+
+# Data
+Assignment 1 will involve using both the `penguins` and `mtcars` datasets. `mtcars` is native to R and penguins is in the `palmerpenguins` package. The code chunk below is an example of how to load both datasets
+
+```{r, eval=FALSE}
+require(palmerpenguins)
+penguins
+mtcars
+```
+
+# Part 1 
+## Simple Data Summary
+1. Create a Shiny app named hw1_part1
+2. In hw1_part1 you will create a data visualization app with the following criteria: 
+* The user can switch between either the `penguins` dataset or the `mtcars` dataset
+* The app allows the user to select a variable and see a histogram if the variable is continuous and a bar chart for discete  variables.
+* When the user has selected a continuous variable, give them the option to color the histogram by a discrete variable. 
+
+An example of this type of a plot is shown below: 
+
+```{r}
+library(ggplot2)
+ggplot(data = diamonds, aes(price, fill = color)) + 
+  geom_histogram(bins = 25, alpha = .7, position = 'identity')
+
+```
+
+  * Any variable that is a string or has less than 5 unique values is a discrete variable
+  
+# Part 2
+## Changing the UI
+1. Create a Shiny app named hw1_part2
+2. Recreate your app from part1 but with a some simple UI modifications
+
+Modifying the UI could include any of the following: 
+
+* Changing the inputs used to select data, variables or plots (radio buttons instead of a drop down etc.)
+* Adding new inputs such as the option to change bins
+* Reorganizing the page layout (grid arrangement, tabs etc.)
+
+# Grading 
+**Submit to GitHub by 10PM Sunday February 6**
+
+10 point scale discussed in class: 
+4 points for attempting all sections 
+3 points for submitting an app that compiles and runs
+3 points for style
+
+* commented code 
+* well designed UI
+* good use of R/R Shiny functions
+
